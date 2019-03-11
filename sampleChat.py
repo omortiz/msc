@@ -1,5 +1,9 @@
 from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
 import tkinter as tk
+
 try:
     import ttk as ttk
     import ScrolledText
@@ -18,13 +22,96 @@ class TkinterGUIExample(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 
         self.chatbot = ChatBot(
-            "GUI Bot",
+            "Rob.ai",
             storage_adapter="chatterbot.storage.SQLStorageAdapter",
             logic_adapters=[
                 "chatterbot.logic.BestMatch"
             ],
             database_uri="sqlite:///database.db"
         )
+
+        # Greetings
+        trainer = ChatterBotCorpusTrainer(self.chatbot)
+        trainer.train(
+            "chatterbot.corpus.english.greetings",
+            "chatterbot.corpus.english.conversations"
+        )
+
+        # HR Questions
+        trainer = ListTrainer(self.chatbot)
+
+        trainer.train([
+            "Hi, can I help you?",
+            "Yes, I would like information about my 401K?",
+            "Here is a link where you can find information about your 401K: https://www.irs.gov/retirement-plans/401k-plans"
+            "Thanks Rob!",
+            "You're welcome!"
+        ])
+
+        trainer.train([
+            "Hi there! How can I help you?",
+            "I need to know who is the CEO of the company",
+            "The current CEO of MSC Software is Paolo Guglielmini."
+            "Thanks Rob!",
+            "You're welcome!"
+        ])
+
+        trainer.train([
+            "Hi there! How can I help you?",
+            "Who is the current CFO?",
+            "The current CFO of MSC Software is Kevin Rubin."
+            "Thanks Rob!",
+            "You're welcome!"
+        ])
+
+        trainer.train([
+            "How can I help you?",
+            "When was the company founded?",
+            "MSC Software was founded in 1963.",
+            "Thanks Rob!",
+            "You're welcome!"
+        ])
+
+        trainer.train([
+            "Hi there! How can I help you?",
+            "When was MSC Software founded?",
+            "MSC Software was founded in 1963.",
+            "Thanks Rob!",
+            "You're welcome!"
+        ])
+
+        trainer.train([
+            "Hello! How can I help you?"
+            "What's the address of MSC Software?",
+            "MSC Software is located at 4675 MacArthur Court Newport Beach, CA 92660.",
+            "Okay thanks!",
+            "Your're welcome! Is there anything else I can do for you?",
+            "No, thanks!"
+        ])
+
+        trainer.train([
+            "Hi! How can I help you?",
+            "What's the company's address?",
+            "MSC Software is located at 4675 MacArthur Court Newport Beach, CA 92660.",
+            "Do you need anything else?",
+            "No, thank you!",
+            "Have a good day!",
+            "Thanks, you too!"
+        ])
+
+        trainer.train([
+            "Hi! How can I help you?",
+            "What's the phone number of MSC Software?",
+            "The phone number for MSC Software (714) 540-8900.",
+
+        ])
+
+        trainer.train([
+            "Hi! How can I help you?",
+            "What's MSC Software's phone number?",
+            "The phone number for MSC Software (714) 540-8900.",
+
+        ])
 
         self.title("Chatterbot")
 

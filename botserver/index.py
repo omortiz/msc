@@ -13,10 +13,14 @@ chatbot = SampleChatbot()
 def index():
     return render_template('index.html')
 
-@app.route('/quest')
+@app.route('/quest', methods = ['POST','GET'])
 def quest():
-    response = chatbot.get_response("Hi")
-    return render_template('index.html', response=response)
+    if request.method == 'POST':
+        reponse = chatbot.get_response(request.form['message'])
+        return json.dump({'reply':response})
+    else:
+        response = chatbot.get_response("Hi")
+        return render_template('index.html', response=response)
 
 # run Flask app
 if __name__ == "__main__":

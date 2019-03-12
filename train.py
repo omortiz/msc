@@ -568,3 +568,37 @@ def trainSet3(bot):
         "MSC Software has created the following products: MSC Apex, Actran, Adams, Digimat, Dytran, Easy5, Marc, MaterialCenter, MSC Fatigue, MSC Nastran, Patran, SimDesigner, SimManager, SimXpert, and Sinda"
     ])
 
+    trainer.train([
+        "What are my employee benefits?",
+        "Your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
+    ])
+
+    trainer.train([
+        "What are my work benefits?",
+        "Your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
+    ])
+
+    trainer.train([
+        "What are my benefits?",
+        "Your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
+    ])
+
+    trainer.train([
+        "What benefits do I have?",
+        "Your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
+    ])
+
+    trainer.train([
+        "I need to see a doctor. Does my insurance cover me?",
+        "Yes, your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
+    ])
+
+    trainer.train([
+        "I need to see a doctor. Does my employee insurance cover me?",
+        "Yes, your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
+    ])
+
+    trainer.train([
+        "I need to see a doctor.",
+        "Your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
+    ])

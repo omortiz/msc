@@ -1,7 +1,7 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
-
+from train import trainSet1,trainSet2,trainSet3
 import tkinter as tk
 
 try:
@@ -25,95 +25,21 @@ class TkinterGUIExample(tk.Tk):
             "Rob.ai",
             storage_adapter="chatterbot.storage.SQLStorageAdapter",
             logic_adapters=[
-                "chatterbot.logic.BestMatch"
+                {
+                    'import_path': 'chatterbot.logic.BestMatch',
+                    'default_response': 'I am sorry, but I do not understand.',
+                    'maximum_similarity_threshold': 0.90
+                }
             ],
             database_uri="sqlite:///database.db"
         )
 
-        # Greetings
-        trainer = ChatterBotCorpusTrainer(self.chatbot)
-        trainer.train(
-            "chatterbot.corpus.english.greetings",
-            "chatterbot.corpus.english.conversations"
-        )
+        # train
+        trainSet1(self.chatbot) #chatterbot greetings
+        trainSet2(self.chatbot) #Nijjan HR questions
+        trainSet3(self.chatbot) #MSC Software questions
 
-        # HR Questions
-        trainer = ListTrainer(self.chatbot)
-
-        trainer.train([
-            "Hi, can I help you?",
-            "Yes, I would like information about my 401K?",
-            "Here is a link where you can find information about your 401K: https://www.irs.gov/retirement-plans/401k-plans"
-            "Thanks Rob!",
-            "You're welcome!"
-        ])
-
-        trainer.train([
-            "Hi there! How can I help you?",
-            "I need to know who is the CEO of the company",
-            "The current CEO of MSC Software is Paolo Guglielmini."
-            "Thanks Rob!",
-            "You're welcome!"
-        ])
-
-        trainer.train([
-            "Hi there! How can I help you?",
-            "Who is the current CFO?",
-            "The current CFO of MSC Software is Kevin Rubin."
-            "Thanks Rob!",
-            "You're welcome!"
-        ])
-
-        trainer.train([
-            "How can I help you?",
-            "When was the company founded?",
-            "MSC Software was founded in 1963.",
-            "Thanks Rob!",
-            "You're welcome!"
-        ])
-
-        trainer.train([
-            "Hi there! How can I help you?",
-            "When was MSC Software founded?",
-            "MSC Software was founded in 1963.",
-            "Thanks Rob!",
-            "You're welcome!"
-        ])
-
-        trainer.train([
-            "Hello! How can I help you?"
-            "What's the address of MSC Software?",
-            "MSC Software is located at 4675 MacArthur Court Newport Beach, CA 92660.",
-            "Okay thanks!",
-            "Your're welcome! Is there anything else I can do for you?",
-            "No, thanks!"
-        ])
-
-        trainer.train([
-            "Hi! How can I help you?",
-            "What's the company's address?",
-            "MSC Software is located at 4675 MacArthur Court Newport Beach, CA 92660.",
-            "Do you need anything else?",
-            "No, thank you!",
-            "Have a good day!",
-            "Thanks, you too!"
-        ])
-
-        trainer.train([
-            "Hi! How can I help you?",
-            "What's the phone number of MSC Software?",
-            "The phone number for MSC Software (714) 540-8900.",
-
-        ])
-
-        trainer.train([
-            "Hi! How can I help you?",
-            "What's MSC Software's phone number?",
-            "The phone number for MSC Software (714) 540-8900.",
-
-        ])
-
-        self.title("Chatterbot")
+        self.title("Rob.ai")
 
         self.initialize()
 
@@ -146,7 +72,7 @@ class TkinterGUIExample(tk.Tk):
 
         self.conversation['state'] = 'normal'
         self.conversation.insert(
-            tk.END, "Human: " + user_input + "\n" + "ChatBot: " + str(response.text) + "\n"
+            tk.END, "Me: " + user_input + "\n" + "Rob: " + str(response.text) + "\n"
         )
         self.conversation['state'] = 'disabled'
 

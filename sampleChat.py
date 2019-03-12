@@ -86,6 +86,5 @@ class TkinterGUIExample(tk.Tk):
 
         time.sleep(0.5)
 
-
 gui_example = TkinterGUIExample()
 gui_example.mainloop()

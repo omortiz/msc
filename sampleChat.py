@@ -1,7 +1,4 @@
-import os
 from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
-from chatterbot.trainers import ChatterBotCorpusTrainer
 from train import trainSet1,trainSet2,trainSet3
 import tkinter as tk
 

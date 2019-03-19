@@ -1,6 +1,5 @@
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from multiprocessing.connection import Listener
 
 HRdataList = [["How do I find out about job openings?",
 "Visit our career site. Before applying we ask that you carefully read the job description to ensure you fulfill the requirements and are interested in the position."],

@@ -1,3 +1,4 @@
+import os
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -49,34 +50,33 @@ class TkinterGUIExample(tk.Tk):
         """
         self.grid()
 
-        self.respond = ttk.Button(self, text='Get Response', command=self.get_response)
-        self.respond.grid(column=0, row=0, sticky='nesw', padx=3, pady=3)
+        self.respond = ttk.Button(self, text='Send', command=self.get_response)
+        self.bind("<Return>", lambda x: self.get_response())
+        self.respond.grid(column=1, row=1, sticky='nesw', padx=3, pady=3)
 
         self.usr_input = ttk.Entry(self, state='normal')
-        self.usr_input.grid(column=1, row=0, sticky='nesw', padx=3, pady=3)
-
-        self.conversation_lbl = ttk.Label(self, anchor=tk.E, text='Conversation:')
-        self.conversation_lbl.grid(column=0, row=1, sticky='nesw', padx=3, pady=3)
+        self.usr_input.grid(column=0, row=1, sticky='nesw', padx=3, pady=3)
 
         self.conversation = ScrolledText.ScrolledText(self, state='disabled')
-        self.conversation.grid(column=0, row=2, columnspan=2, sticky='nesw', padx=3, pady=3)
+        self.conversation.grid(column=0, row=0, columnspan=1, sticky='nesw', padx=3, pady=3)
 
     def get_response(self):
         """
-        Get a response from the chatbot and display it.
+        Get a response from the chatbot and display it if the user typed something.
         """
-        user_input = self.usr_input.get()
-        self.usr_input.delete(0, tk.END)
+        if(len(self.usr_input.get()) != 0):
+            user_input = self.usr_input.get()
+            self.usr_input.delete(0, tk.END)
 
-        response = self.chatbot.get_response(user_input)
+            response = self.chatbot.get_response(user_input)
 
-        self.conversation['state'] = 'normal'
-        self.conversation.insert(
-            tk.END, "Me: " + user_input + "\n" + "Rob: " + str(response.text) + "\n"
-        )
-        self.conversation['state'] = 'disabled'
+            self.conversation['state'] = 'normal'
+            self.conversation.insert(tk.END, "Me: " + user_input + "\n")
+            self.conversation.insert(tk.END, "Rob: " + str(response.text) + "\n")
+            self.conversation.see(tk.END)
+            self.conversation['state'] = 'disabled'
 
-        time.sleep(0.5)
+            time.sleep(0.5)
 
 
 gui_example = TkinterGUIExample()

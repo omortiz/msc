@@ -1,3 +1,4 @@
+import os
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -68,9 +69,9 @@ class TkinterGUIExample(tk.Tk):
         response = self.chatbot.get_response(user_input)
 
         self.conversation['state'] = 'normal'
-        self.conversation.insert(
-            tk.END, "Me: " + user_input + "\n" + "Rob: " + str(response.text) + "\n"
-        )
+        self.conversation.insert(tk.END, "Me: " + user_input + "\n")
+        self.conversation.insert(tk.END, "Rob: " + str(response.text) + "\n")
+        self.conversation.see(tk.END)
         self.conversation['state'] = 'disabled'
 
         time.sleep(0.5)

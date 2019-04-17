@@ -1,0 +1,41 @@
+body,html {
+    height: 100%;
+}
+
+#s1{
+    background-color: rgb(201, 76, 76);
+    color: aliceblue;
+    height: 70px;
+    font-size: 40px;
+}
+
+
+.chat-container {
+    margin: 0px;
+    padding: px;
+}
+
+.chat-message {
+  padding: 6px;
+  border-radius: 3px;
+  margin-bottom: 3px;
+}
+
+.bot-message {
+    background: green;
+    color: white;
+}
+
+.human-message {
+    background:dodgerblue;
+    color: white;
+    margin: 13px 1px;
+}
+
+.input {
+  width: 100%;
+  margin: 35px 0px;
+  height: 60px;
+  border: 1px solid rosybrown;
+  border-radius: 3px;
+}

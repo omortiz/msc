@@ -25,7 +25,7 @@ Run these command in Terminal or local bash
   
   `flask run`
 
-  --to start the server, the server locates on Localhost:3000
+  --to start the server, the server locates on <http://localhost:5000/>
   
   
   

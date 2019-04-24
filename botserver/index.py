@@ -25,7 +25,7 @@ def quest():
         return json.dumps({'reply':str(response)})
 
 @app.route('/input', methods = ['POST','GET'])
-def quest():
+def input():
     if request.method == 'POST':
         chatbot.train(request.form['input'])
         return json.dumps({'reply':True})

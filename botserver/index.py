@@ -24,6 +24,15 @@ def quest():
         response = chatbot.get_response("Hi")
         return json.dumps({'reply':str(response)})
 
+@app.route('/input', methods = ['POST','GET'])
+def quest():
+    if request.method == 'POST':
+        chatbot.train(request.form['input'])
+        return json.dumps({'reply':True})
+    else:
+        response = chatbot.get_response("Hi")
+        return json.dumps({'reply':False})
+
 # run Flask app
 if __name__ == "__main__":
     app.run()

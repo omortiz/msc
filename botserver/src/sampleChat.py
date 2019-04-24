@@ -1,3 +1,4 @@
+import os
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -42,4 +43,10 @@ class SampleChatbot():
         response = self.chatbot.get_response(quest)
 
         return response
+
+    def train(self, input):
+        """
+        Train the chatbot with certain input
+        """
+        self.chatbot.train(input)
 

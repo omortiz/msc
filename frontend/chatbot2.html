@@ -1,0 +1,39 @@
+<!-- /templates/index.html -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="chatbot2.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <title>Rob.ai</title>
+</head>
+
+<body>
+    <div class="container full-body">
+        <div class="row headerlogo header-bar ">
+            <h1 class="col-12"> Rob.ai</h1>
+        </div>
+        <div class="row chatbody">
+            <div class="col-12 mx-auto">
+                <div class="chat-container container">
+                    <!-- chat messages -->
+                </div>
+            </div>
+        </div>
+        <form id="target" class="row inputbox">
+            <input class="input col-10" type="text" value="" placeholder="Enter message..." id="input_message" />
+            <input type="submit" class="submit col-2">
+        </form>
+    </div>
+
+    <script src="chatbot2.js"></script>
+</body>
+
+</html>

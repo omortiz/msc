@@ -3,6 +3,7 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from src.train import trainSet1, trainSet2, trainSet3
+from chatterbot.comparisons import JaccardSimilarity
 import time
 
 
@@ -21,6 +22,10 @@ class SampleChatbot():
                     'import_path': 'chatterbot.logic.BestMatch',
                     'default_response': 'I am sorry, but I do not understand.',
                     'maximum_similarity_threshold': 0.90
+                },
+                {
+                    "import_path": "chatterbot.logic.BestMatch",
+                    "statement_comparison_function": JaccardSimilarity
                 }
             ],
             database_uri="sqlite:///database.db"

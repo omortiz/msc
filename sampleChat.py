@@ -27,6 +27,9 @@ class TkinterGUIExample(tk.Tk):
                     'import_path': 'benefits_adapter.BenefitsAdapter',
                 },
                 {
+                    'import_path': 'travel_adapter.TravelAdapter',
+                },
+                {
                     'import_path': 'chatterbot.logic.BestMatch',
                     'default_response': 'I am sorry, but I do not understand.',
                     'maximum_similarity_threshold': 0.90

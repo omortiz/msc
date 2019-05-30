@@ -19,14 +19,24 @@ class SampleChatbot():
             storage_adapter="chatterbot.storage.SQLStorageAdapter",
             logic_adapters=[
                 {
-                    'import_path': 'chatterbot.logic.BestMatch',
+                    "import_path": "chatterbot.logic.BestMatch",
+                    "statement_comparison_function": JaccardSimilarity,
                     'default_response': 'I am sorry, but I do not understand.',
-                    'maximum_similarity_threshold': 0.90
+                    'maximum_similarity_threshold': 0.995
                 },
                 {
                     "import_path": "chatterbot.logic.BestMatch",
-                    "statement_comparison_function": JaccardSimilarity
-                }
+                    'default_response': 'I am sorry, but I do not understand.',
+                    'maximum_similarity_threshold': 0.995
+                },
+                {
+                    'import_path': 'src.benefits_adapter.BenefitsAdapter'
+                },
+                {
+                    'import_path': 'src.travel_adapter.TravelAdapter'
+                },
+                'chatterbot.logic.MathematicalEvaluation',
+                'chatterbot.logic.TimeLogicAdapter'
             ],
             database_uri="sqlite:///database.db"
         )

@@ -244,6 +244,14 @@ def trainSet3(bot):
 
     trainer.train([
         "Hi there! How can I help you?",
+        "Who is the CEO?",
+        "The current CEO of MSC Software is Paolo Guglielmini.",
+        "Thank you!",
+        "You're welcome!"
+    ])
+
+    trainer.train([
+        "Hi there! How can I help you?",
         "Who is MSC Software's Chief Executive Officer?",
         "The current CEO of MSC Software is Paolo Guglielmini.",
         "Thank you!",
@@ -381,6 +389,16 @@ def trainSet3(bot):
     ])
 
     trainer.train([
+        "Where is MSC Software?",
+        "MSC Software is located at 4675 MacArthur Court Newport Beach, CA 92660.",
+    ])
+
+    trainer.train([
+        "Where is the MSC Software?",
+        "MSC Software is located at 4675 MacArthur Court Newport Beach, CA 92660.",
+    ])
+
+    trainer.train([
         "Where is MSC located?",
         "MSC Software is located at 4675 MacArthur Court Newport Beach, CA 92660.",
     ])
@@ -423,6 +441,14 @@ def trainSet3(bot):
     ])
 
     trainer.train([
+        "Hi! How can I help you?",
+        "What is MSC Software?",
+        "MSC Software Corporation is an American software company based in Newport Beach, California, that specializes in simulation software.",
+        "Okay, thanks!",
+        "You're welcome!"
+    ])
+
+    trainer.train([
         "What does MSC Software do?",
         "MSC Software Corporation is an American software company based in Newport Beach, California, that specializes in simulation software."
     ])
@@ -440,16 +466,6 @@ def trainSet3(bot):
     trainer.train([
         "What does MSC Software make?",
         "MSC Software Corporation is an American software company based in Newport Beach, California, that specializes in simulation software."
-    ])
-
-
-
-    trainer.train([
-        "Hi! How can I help you?",
-        "What's MSC Software?",
-        "MSC Software Corporation is an American software company. Here's a link to it's Wikipedia page: https://en.wikipedia.org/wiki/MSC_Software",
-        "Okay, thanks!",
-        "You're welcome!"
     ])
 
     trainer.train([
@@ -606,4 +622,25 @@ def trainSet3(bot):
         "I need to see a doctor.",
         "Your employee benefits include Health, Dental, and Vision. Here's a link for more information: https://www.mscsoftware.com/us-benefits"
     ])
+
+    trainer.train([
+        "Hi Rob!",
+        "Hello there!",
+        "I sprained my ankle",
+        "Do you need to see a doctor?",
+        "Yes. I need to see a doctor.",
+        "Your employee benefits include Health, Dental, and Vision.",
+        "Where can I find more information about my benefits?",
+        "Here's a link: https://www.mscsoftware.com/us-benefits"
+    ])
+
+    trainer.train([
+        "Hey Rob!",
+        "Hello there!",
+        "Do you need to see a doctor?",
+        "Yes.",
+        "Your employee benefits include Health, Dental, and Vision.",
+        "Where can I find more information about my benefits?",
+        "Here's a link: https://www.mscsoftware.com/us-benefits"
+        ])
 
